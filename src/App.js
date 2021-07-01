@@ -14,7 +14,7 @@ function App() {
   const search = (e) => {
     if (e.key === "Enter") {
       axios(apiurl + "&s=" + state.s).then(({ data }) => {
-        let result = data.Search();
+        let results = data.Search;
         setState((prevState) => {
           return { ...prevState, results: results };
         });
@@ -23,9 +23,9 @@ function App() {
   };
 
   const handleInput = (e) => {
-    let s = e.target.value;
+    let search = e.target.value;
     setState((prevState) => {
-      return { ...prevState, s: s };
+      return { ...prevState, s: search };
     });
   };
   return (
@@ -35,7 +35,7 @@ function App() {
       </header>
       <main>
         <Search handleInput={handleInput} search={search} />
-        <Results results={results} />
+        <Results results={state.results} />
       </main>
     </div>
   );
