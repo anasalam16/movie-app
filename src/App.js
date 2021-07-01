@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Search from "./components/Search";
+import Results from "./components/Results";
+
 function App() {
   const [state, setState] = useState({
     s: "",
@@ -11,8 +13,11 @@ function App() {
 
   const search = (e) => {
     if (e.key === "Enter") {
-      axios(apiurl + "&s=" + state.s).then((data) => {
-        console.log(data);
+      axios(apiurl + "&s=" + state.s).then(({ data }) => {
+        let result = data.Search();
+        setState((prevState) => {
+          return { ...prevState, results: results };
+        });
       });
     }
   };
@@ -30,6 +35,7 @@ function App() {
       </header>
       <main>
         <Search handleInput={handleInput} search={search} />
+        <Results results={results} />
       </main>
     </div>
   );
