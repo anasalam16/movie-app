@@ -112,7 +112,7 @@ section {
   padding: 0px 15px;
 }
 .popup .content .plot p {
-  flex: 1 1 0 50%;
+  flex: 1 1 50%;
   padding: 15px;
 }
 .popup .content .close {
@@ -120,7 +120,7 @@ section {
   padding: 15px 30px;
   font-size: 18px;
   font-weight: 700;
-  background: #4484c4;
+  background: #44C484;
   color: #fff;
   border-radius: 8px;
   border: none;

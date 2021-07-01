@@ -9,7 +9,7 @@ function App() {
     results: [],
     selected: {},
   });
-  const apiurl = " http://www.omdbapi.com/?i=tt3896198&apikey=10c8701a";
+  const apiurl = " http://www.omdbapi.com/?apikey=10c8701a";
 
   const search = (e) => {
     if (e.key === "Enter") {
@@ -51,10 +51,8 @@ function App() {
         <Search handleInput={handleInput} search={search} />
         <Results results={state.results} openPopup={openPopup} />
 
-        {typeof state.selected.Title != "undefined" ? (
+        {typeof state.selected.Title != "undefined" && (
           <Popup selected={state.selected} closePopup={closePopup} />
-        ) : (
-          false
         )}
       </main>
     </div>
